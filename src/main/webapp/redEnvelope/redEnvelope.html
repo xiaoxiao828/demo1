@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <title>发红包</title>
+    <link rel="stylesheet" href="./css/common.css"/>
+    <style>
+        .page-header .help {
+            position: absolute;
+            top: 13px;
+            right: 20px;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            color: #FFF;
+            line-height: 20px;
+            text-align: center;
+            border: 2px solid #FFF;
+            border-radius: 50%;
+        }
+        .page-content {
+            padding: 20px;
+        }
+        .btn {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            display: inline-block;
+            margin: 0;
+            padding: 15px 0;
+            font-size: 16px;
+            color: #FFFFFF;
+            text-decoration: none;
+            text-align: center;
+            letter-spacing: .2em;
+            background-color: #d65645;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+        }
+        .btn.disabled {
+            opacity: .6;
+            filter: alpha(opacity=60);
+        }
+        .envelope-btn {
+            margin-top: 15px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<header class="page-header">
+    <p>发红包</p>
+    <a class="help" href="javascript:void(0);">?</a>
+</header>
+<div class="page-content">
+    <div class="input-group">
+        <span>红包个数</span>
+        <input type="number" name="envelope_num" dir="rtl"/>
+        <span>个</span>
+    </div>
+    <div class="input-group">
+        <span>总金额</span>
+        <input type="number" name="envelope_amount" dir="rtl"/>
+        <span>元</span>
+    </div>
+    <div class="input-group">
+        <span>留言</span>
+        <input type="text" name="envelope_msg" dir="rtl" placeholder="恭喜发财，大吉大利"/>
+    </div>
+    <p class="amount">￥<span id="envelope_amount">0.00</span></p>
+    <button class="btn disabled envelope-btn">塞钱进红包</button>
+</div>
+<script src="./js/zepto.min.js"></script>
+<script>
+    /* 金钱格式化 */
+    String.prototype.formatMoney = function() {
+        var number = this,
+            negative = number < 0 ? '-' : '',
+            i = parseInt(number = Math.abs(+number || 0).toFixed(2), 10) + '',
+            j = (j = i.length) > 3 ? j % 3 : 0;
+        return negative + (j ? i.substr(0, j) + ',' : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1,") + '.' + Math.abs(number - i).toFixed(2).slice(2);
+    };
+    var envelope_amount = '', envelope_num = '';
+    $('input[name=envelope_num]').on('change', function() {
+        var value = $(this).val();
+        $(this).val(parseInt(value));
+        envelope_num = parseInt(value);
+        if(envelope_num && envelope_amount)
+            $('.envelope-btn').removeClass('disabled');
+    });
+    $('input[name=envelope_amount]').on('input propertychange', function() {
+        var value = $(this).val();
+        $('#envelope_amount').text(value.formatMoney());
+        envelope_amount = value.formatMoney();
+        if(envelope_num && envelope_amount)
+            $('.envelope-btn').removeClass('disabled');
+    });
+    $('.envelope-btn').on('click', function() {
+        if($(this).hasClass('disabled')) return false;
+        var data = {
+            envelope_num: envelope_num,
+            envelope_amount: envelope_amount,
+            envelope_msg: $('input[name=envelope_msg]').val() || '恭喜发财，大吉大利'
+        };
+        $.ajax({
+            url: '',
+            data: JSON.stringify(data),
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function(res) {
+
+            },
+            error: function(xhr, error) {
+                console.error(error);
+            }
+        })
+    });
+</script>
+</body>
+</html>

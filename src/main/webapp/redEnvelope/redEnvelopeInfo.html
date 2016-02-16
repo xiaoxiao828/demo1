@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <title>红包详情</title>
+    <link rel="stylesheet" href="./css/common.css"/>
+    <style>
+        .envelope-user {
+            position: relative;
+            padding: 50px 0 12px;
+            width: 100%;
+            background-color: #FFF;
+        }
+        .envelope-user:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: #d65645;
+            border-bottom-left-radius: 45%;
+            border-bottom-right-radius: 45%;
+            -webkit-box-shadow: 0 3px 0 #e5e5e5;
+            -moz-box-shadow: 0 3px 0 #e5e5e5;
+            box-shadow: 0 3px 0 #e5e5e5;
+        }
+        .envelope-user p {
+            padding: 3px 0;
+            text-align: center;
+        }
+        .envelope-user-img {
+            position: relative;
+            z-index: 1;
+        }
+        .envelope-user-img img {
+            margin-bottom: 12px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            -webkit-box-shadow: 0 3px 0 #e5e5e5;
+            -moz-box-shadow: 0 3px 0 #e5e5e5;
+            box-shadow: 0 3px 0 #e5e5e5;
+        }
+        .envelope-info-title {
+            padding: 8px 15px;
+            color: #999;
+            font-size: 12px;
+        }
+        .envelope-info li {
+            overflow: hidden;
+            margin-bottom: 1px;
+            padding: 8px 15px;
+            background-color: #FFF;
+        }
+        .envelope-info li > img {
+            float: left;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .envelope-info li > .got-envelope-user {
+            margin-left: 45px;
+            height: 40px;
+        }
+        .got-envelope-user p {
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+<header class="page-header">
+    <p>红包详情</p>
+</header>
+<div class="envelope-user">
+    <p class="envelope-user-img"><img src="./touxiang.jpg" alt=""/></p>
+    <p>某某某的红包</p>
+    <p class="text-unused">恭喜发财，大吉大利！</p>
+</div>
+<p class="envelope-info-title">1个红包共18.00元</p>
+<ul class="envelope-info">
+    <li>
+        <img src="./touxiang.jpg" alt=""/>
+        <div class="got-envelope-user">
+            <p>某某某<span class="pull-right">18.00元</span></p>
+            <p class="text-unused">12:46:21</p>
+        </div>
+    </li>
+    <li>
+        <img src="./touxiang.jpg" alt=""/>
+        <div class="got-envelope-user">
+            <p>某某某<span class="pull-right">18.00元</span></p>
+            <p class="text-unused">12:46:21</p>
+        </div>
+    </li>
+    <li>
+        <img src="./touxiang.jpg" alt=""/>
+        <div class="got-envelope-user">
+            <p>某某某<span class="pull-right">18.00元</span></p>
+            <p class="text-unused">12:46:21</p>
+        </div>
+    </li>
+</ul>
+</body>
+</html>

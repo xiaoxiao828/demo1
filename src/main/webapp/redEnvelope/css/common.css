@@ -1,0 +1,111 @@
+/* 初始化样式 */
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, i, ul, li, form, label, footer, header, menu, nav, section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    background: transparent;
+}
+html, body {
+    background: #F6F7F8;
+}
+body {
+    color: #000;
+    font-size: 16px;
+    font-family: '微软雅黑', sans-serif;
+}
+aside, footer, header, menu, nav, section {
+    display: block;
+}
+input, textarea, input, a, button {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    outline: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+ol, ul {
+    list-style: none;
+}
+a {
+    display: inline-block;
+    text-decoration: none;
+    cursor: default;
+}
+/* END 初始化样式 */
+.text-unused {
+    color: #999;
+    font-size: 14px;
+}
+.pull-right {
+    float: right;
+}
+.page-header {
+    position: relative;
+    height: 50px;
+    background-color: #d65645;
+}
+.page-header p {
+    font-size: 20px;
+    line-height: 50px;
+    color: #FFF;
+    text-align: center;
+}
+.input-group {
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    background-color: #FFF;
+    border-radius: 5px;
+}
+.input-group span {
+    line-height: 2;
+}
+.input-group input {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 8px 5px;
+    font-size: 16px;
+    border: none;
+}
+.amount {
+    padding: 40px 20px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+.envelope {
+    position: relative;
+    padding: 30px 0 0;
+    width: 100%;
+    height: 500px;
+    background-color: #a34437;
+    border-radius: 10px;
+}
+.envelope:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 350px;
+    background-color: #bf4d3b;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 40%;
+    border-bottom-right-radius: 40%;
+    -webkit-box-shadow: 0 5px 0 #9d4135;
+    -moz-box-shadow: 0 5px 0 #9d4135;
+    box-shadow: 0 5px 0 #9d4135;
+}
